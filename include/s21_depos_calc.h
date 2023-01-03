@@ -2,8 +2,8 @@
 // Created by Jenelle Puddy on 12/17/22.
 //
 
-#ifndef SRC_S21_DEPOS_CALC_H_
-#define SRC_S21_DEPOS_CALC_H_
+#ifndef INCLUDE_S21_DEPOS_CALC_H_
+#define INCLUDE_S21_DEPOS_CALC_H_
 
 #include <math.h>
 #include <time.h>
@@ -60,4 +60,4 @@ void depos_calc(double amount, int term, double interest, int period,
 }
 #endif
 
-#endif  // SRC_S21_DEPOS_CALC_H_
+#endif  // INCLUDE_S21_DEPOS_CALC_H_

@@ -3,8 +3,6 @@
 //
 
 #include <check.h>
-#include <stdio.h>
-#include <string.h>
 
 #include "../include/s21_credit_calc.h"
 #include "../include/s21_depos_calc.h"

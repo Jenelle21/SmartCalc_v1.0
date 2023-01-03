@@ -1,5 +1,5 @@
-#ifndef DEPOSCALC_H
-#define DEPOSCALC_H
+#ifndef INCLUDE_DEPOSCALC_H_
+#define INCLUDE_DEPOSCALC_H_
 
 #include <QBoxLayout>
 #include <QCalendarWidget>
@@ -46,4 +46,4 @@ class DeposCalc : public QStackedWidget {
   void sortWR(QDate *, double *);
 };
 
-#endif  // DEPOSCALC_H
+#endif  // INCLUDE_DEPOSCALC_H_

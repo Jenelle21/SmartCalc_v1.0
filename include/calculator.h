@@ -1,5 +1,5 @@
-#ifndef CALCULATOR_H
-#define CALCULATOR_H
+#ifndef INCLUDE_CALCULATOR_H_
+#define INCLUDE_CALCULATOR_H_
 
 #include <QDoubleValidator>
 #include <QIntValidator>
@@ -7,8 +7,9 @@
 #include <QTimer>
 #include <QVector>
 
-#include "../include/creditcalc.h"
-#include "../include/deposcalc.h"
+#include "s21_smart_calc.h"
+#include "creditcalc.h"
+#include "deposcalc.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -47,4 +48,4 @@ class Calculator : public QMainWindow {
   void backFromCredit();
   void backFromDepos();
 };
-#endif  // CALCULATOR_H
+#endif  // INCLUDE_CALCULATOR_H_

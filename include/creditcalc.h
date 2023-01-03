@@ -1,5 +1,5 @@
-#ifndef CREDITCALC_H
-#define CREDITCALC_H
+#ifndef INCLUDE_CREDITCALC_H_
+#define INCLUDE_CREDITCALC_H_
 
 #include <QIntValidator>
 #include <QDoubleValidator>
@@ -44,4 +44,4 @@ class CreditCalc : public QStackedWidget {
   void uncheckAnn();
 };
 
-#endif  // CREDITCALC_H
+#endif  // INCLUDE_CREDITCALC_H_

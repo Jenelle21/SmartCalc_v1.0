@@ -1,5 +1,5 @@
-#ifndef WITHREPLSFIELD_H
-#define WITHREPLSFIELD_H
+#ifndef INCLUDE_WITHREPLSFIELD_H_
+#define INCLUDE_WITHREPLSFIELD_H_
 
 #include <QCalendarWidget>
 #include <QWidget>
@@ -30,4 +30,4 @@ class WithReplsField : public QWidget {
   void closeThisField(int);
 };
 
-#endif  // WITHREPLSFIELD_H
+#endif  // INCLUDE_WITHREPLSFIELD_H_
