@@ -12,9 +12,9 @@ DeposCalc::DeposCalc(QWidget *parent)
   connect(ui->checkM, SIGNAL(clicked()), this, SLOT(uncheckY()));
   connect(ui->checkY, SIGNAL(clicked()), this, SLOT(uncheckM()));
   connect(ui->add, SIGNAL(clicked()), this, SLOT(addField()));
-  ui->interestEdit->setValidator(new QDoubleValidator(ui->interestEdit));
+  ui->interestEdit->setValidator(new QDoubleValidator(1, 99, 1, ui->interestEdit));
   ui->termEdit->setValidator(new QIntValidator(1, 50, ui->termEdit));
-  ui->amountEdit->setValidator(new QDoubleValidator(this));
+  ui->amountEdit->setValidator(new QDoubleValidator(100000, 1000000000, 0, this));
   ui->start->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
   ui->start->setDate(QDate::currentDate());
   ui->comboBox->setCurrentIndex(2);

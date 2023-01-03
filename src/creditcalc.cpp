@@ -14,7 +14,7 @@ CreditCalc::CreditCalc(QWidget *parent)
   connect(ui->interestSlider, SIGNAL(valueChanged(int)), this,
           SLOT(setValInt()));
   connect(ui->termSlider, SIGNAL(valueChanged(int)), this, SLOT(setValTerm()));
-  ui->interestEdit->setValidator(new QDoubleValidator(ui->interestEdit));
+  ui->interestEdit->setValidator(new QDoubleValidator(1.0, 50.0, 1, ui->interestEdit));
   ui->termEdit->setValidator(new QIntValidator(1, 36, ui->termEdit));
   connect(ui->calculate, SIGNAL(clicked()), this, SLOT(calculate()));
   connect(ui->back, SIGNAL(clicked()), this, SLOT(back()));
@@ -38,7 +38,7 @@ void CreditCalc::setValAmo() {
 }
 
 void CreditCalc::setValInt() {
-  QString text = QString::number(ui->interestSlider->value());
+  QString text = QString::number((double)ui->interestSlider->value() / 10, 'f', 1);
   ui->interestEdit->setText(text);
 }
 
@@ -52,7 +52,7 @@ void CreditCalc::on_loanEdit_textChanged(const QString &arg1) {
 }
 
 void CreditCalc::on_interestEdit_textChanged(const QString &arg1) {
-  ui->interestSlider->setSliderPosition(arg1.toInt());
+  ui->interestSlider->setSliderPosition(arg1.toDouble() * 10);
 }
 
 void CreditCalc::on_termEdit_textChanged(const QString &arg1) {
@@ -65,7 +65,7 @@ void CreditCalc::calculate() {
       ui->termEdit->text() != "") {
     double amount = ui->loanEdit->text().toDouble();
     int term = ui->termEdit->text().toInt();
-    double interest = ui->interestEdit->text().toInt();
+    double interest = ui->interestEdit->text().toDouble();
     int type;
     if (ui->checkY->isChecked()) term *= 12;
     if (ui->checkAnn->isChecked())
