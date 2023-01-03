@@ -5,7 +5,6 @@
 // TODO: пофиксить сортировку пополнений в депозите, хз что там, но не работает при одинаковых датах
 // TODO: переписать свич кейс в депозите, сократить - возможно функция получения следующей даты
 // TODO: глянуть 29-31 число месяца в депозитном, нет выплат
-// TODO: переписать ошибки калькулятора на англ
 
 static bool check = true;
 
@@ -83,7 +82,7 @@ Calculator::~Calculator() {
 void Calculator::digitsNumbers() {
   QPushButton *button = (QPushButton *)sender();
   QString result_label = ui->Result->text();
-  if (result_label == "Ошибка ввода") {
+  if (result_label == "Incorrect input") {
     ui->Result->setText("");
     result_label = ui->Result->text();
   }
@@ -113,7 +112,7 @@ void Calculator::clear() {
 void Calculator::arithmetic() {
   QPushButton *button = (QPushButton *)sender();
   QString result_label = ui->Result->text();
-  if (result_label == "Ошибка ввода") {
+  if (result_label == "Incorrect input") {
     ui->Result->setText("");
     result_label = ui->Result->text();
   }
@@ -123,7 +122,7 @@ void Calculator::arithmetic() {
 void Calculator::func() {
   QPushButton *button = (QPushButton *)sender();
   QString result_label = ui->Result->text();
-  if (result_label == "Ошибка ввода") {
+  if (result_label == "Incorrect input") {
     ui->Result->setText("");
     result_label = ui->Result->text();
   }
@@ -135,17 +134,17 @@ void Calculator::calculate() {
   str.replace(",", ".");
   str.replace(")(", ")*(");
   if (str.contains('x') && ui->Value->text() == "") {
-    ui->Result->setText("Ошибка ввода!");
+    ui->Result->setText("Incorrect input");
   } else {
     if (str.contains('x')) str.replace("x", ui->Value->text());
     QByteArray bstr = str.toLocal8Bit();
     char *str_for_c = bstr.data();
     double result = 0;
-    if (str == "" or str == "Ошибка ввода") {
-      ui->Result->setText("Ошибка ввода");
+    if (str == "" or str == "Incorrect input") {
+      ui->Result->setText("Incorrect input");
     } else {
       if (controller(str_for_c, &result) == ERROR) {
-        ui->Result->setText("Ошибка ввода");
+        ui->Result->setText("Incorrect input");
       } else {
         ui->Result->setText(QString::number(result, 'g', 10));
       }
@@ -169,7 +168,7 @@ void Calculator::xPressed() {
 }
 
 void Calculator::printX() {
-  if (ui->Result->text() == "Ошибка ввода") {
+  if (ui->Result->text() == "Incorrect input") {
     ui->Result->setText("");
   }
   check = true;
@@ -182,8 +181,10 @@ void Calculator::makeGraph() {
   QString str = ui->Graph->text();
   if (str.contains("x") == false) {
     ui->Graph->setText("Expression doesn't contain x");
-  } else if (str == "Expression doesn't contain x") {
+  } else if (str == "Expression doesn't contain x" || str == "Incorrect input") {
     ui->Graph->setText("");
+  } else if (double supp = 5 && controller(str.replace("x", 0).toLocal8Bit().data(), &supp) == ERROR) {
+    ui->Graph->setText("Incorrect input");
   } else {
     x.clear();
     y.clear();
