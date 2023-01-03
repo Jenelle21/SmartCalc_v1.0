@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>resource/sign.jpeg</file>
+        <file>resource/Vector 2.svg</file>
+        <file>resource/Group 8.svg</file>
+    </qresource>
+</RCC>

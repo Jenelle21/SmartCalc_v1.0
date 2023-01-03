@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DeposCalc</class>
+ <widget class="QStackedWidget" name="DeposCalc">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>575</width>
+    <height>365</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>StackedWidget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">* {
+background: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+  </property>
+  <property name="currentIndex">
+   <number>0</number>
+  </property>
+  <widget class="QWidget" name="Form">
+   <widget class="QPushButton" name="toCalc">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>290</y>
+      <width>65</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border: 1px solid rgb(36, 48, 94);
+border-radius: 10px;
+background-color: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Calc</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Sign">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>290</y>
+      <width>65</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../resource.qrc">:/images/resource/sign.jpeg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="toCred">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>290</y>
+      <width>65</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border: 1px solid rgb(36, 48, 94);
+border-radius: 10px;
+background-color: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Loan</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="calculate">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>220</y>
+      <width>65</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border: 1px solid rgb(36, 48, 94);
+border-radius: 10px;
+background-color: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Calculate</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="amountEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>10</y>
+      <width>200</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+padding: 10px;
+}</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="interestEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>50</y>
+      <width>80</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="maxLength">
+     <number>5</number>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="termEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>170</y>
+      <width>60</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="amount">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>150</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Investment amount</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="interest">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>150</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Interest rate</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="term">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>170</y>
+      <width>150</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Time Period</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="capitalisation">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>50</y>
+      <width>100</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox {
+spacing: 5px;
+color: rgb(36, 48, 94);
+}
+
+QCheckBox::indicator {
+width: 15px;
+height: 15px;
+background-color: rgb(236, 240, 249);
+}
+
+QCheckBox::indicator:unchecked {
+    image: url(:/images/resource/Vector 2.svg);
+}
+
+QCheckBox::indicator:checked {
+border: none;
+image: url(:/images/resource/Group 8.svg);
+}</string>
+    </property>
+    <property name="text">
+     <string>Capitalisation</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>90</y>
+      <width>160</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 0px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="currentText">
+     <string>every day</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>every day</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>every week</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>once per month</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>once per quarter</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>semiannually</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>once per year</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="Periodicity">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>150</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Periodicity</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QScrollArea" name="scrollArea">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>341</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>339</width>
+       <height>129</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QCheckBox" name="checkM">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>170</y>
+      <width>60</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox {
+spacing: 5px;
+color: rgb(36, 48, 94);
+}
+
+QCheckBox::indicator {
+width: 15px;
+height: 15px;
+background-color: rgb(236, 240, 249);
+}
+
+QCheckBox::indicator:unchecked {
+    image: url(:/images/resource/Vector 2.svg);
+}
+
+QCheckBox::indicator:checked {
+border: none;
+image: url(:/images/resource/Group 8.svg);
+}</string>
+    </property>
+    <property name="text">
+     <string>Months</string>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkY">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>170</y>
+      <width>60</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox {
+spacing: 5px;
+color: rgb(36, 48, 94);
+}
+
+QCheckBox::indicator {
+width: 15px;
+height: 15px;
+background-color: rgb(236, 240, 249);
+}
+
+QCheckBox::indicator:unchecked {
+    image: url(:/images/resource/Vector 2.svg);
+}
+
+QCheckBox::indicator:checked {
+border: none;
+image: url(:/images/resource/Group 8.svg);
+}</string>
+    </property>
+    <property name="text">
+     <string>Years</string>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="start">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>130</y>
+      <width>130</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="dateTime">
+     <datetime>
+      <hour>0</hour>
+      <minute>0</minute>
+      <second>0</second>
+      <year>2022</year>
+      <month>12</month>
+      <day>22</day>
+     </datetime>
+    </property>
+    <property name="minimumDate">
+     <date>
+      <year>1900</year>
+      <month>1</month>
+      <day>1</day>
+     </date>
+    </property>
+    <property name="displayFormat">
+     <string>dd.MM.yyyy</string>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="date">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>150</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background-color: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>First day</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="add">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>220</y>
+      <width>65</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border: 1px solid rgb(36, 48, 94);
+border-radius: 10px;
+background-color: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Add field</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>210</y>
+      <width>321</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Replenishments and Partial withdrawals (with minus)</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="Result">
+   <widget class="QPushButton" name="back">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>220</y>
+      <width>65</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border: 1px solid rgb(36, 48, 94);
+border-radius: 10px;
+background-color: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Back</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Sign_2">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>290</y>
+      <width>65</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../resource.qrc">:/images/resource/sign.jpeg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tp">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>140</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Deposit amount</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="total">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>250</y>
+      <width>250</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tAm">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>140</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Tax amount</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="extraAmo">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>40</y>
+      <width>250</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="accint">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>140</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Accrued interest</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="taxAmo">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>110</y>
+      <width>250</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="fInt">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>140</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background: rgb(236, 240, 249);
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string>Effective interest rate</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="finalInterest">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>180</y>
+      <width>120</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">* {
+border-radius: 10px;
+background: #FFF;
+color: rgb(36, 48, 94);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
