@@ -39,6 +39,17 @@ typedef struct res_t {
 /// @param [out] date Структура времени
 /// @param [in/out] date_t Числовое значение даты, может быть NULL
 void get_date(int year, int month, int day, struct tm *date, time_t *date_t);
+
+/**
+ * @brief Позволяет получить дату следующей выплаты на основе
+ * периодичности
+ * @param now [in] текущая дата
+ * @param end [in] дата завершения вклада
+ * @param period [in] периодичность выплат
+ * @return time_t значение, дата следующей выплаты
+ */
+time_t next_date(struct tm now, struct tm end, int period);
+
 /**
  * @brief Депозитный калькулятор
  * @param amount [in] Сумма вклада

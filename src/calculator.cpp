@@ -3,8 +3,7 @@
 #include "ui_calculator.h"
 
 // TODO: пофиксить сортировку пополнений в депозите, хз что там, но не работает при одинаковых датах
-// TODO: переписать свич кейс в депозите, сократить - возможно функция получения следующей даты
-// TODO: глянуть 29-31 число месяца в депозитном, нет выплат
+// TODO: теперь после уменьшения даты под маленький месяц нужно добавить увеличение
 
 static bool check = true;
 
@@ -179,11 +178,9 @@ void Calculator::backToCalc() { ui->stackedWidget->setCurrentIndex(0); }
 
 void Calculator::makeGraph() {
   QString str = ui->Graph->text();
-  if (str.contains("x") == false) {
-    ui->Graph->setText("Expression doesn't contain x");
-  } else if (str == "Expression doesn't contain x" || str == "Incorrect input") {
+  if (str == "Incorrect input") {
     ui->Graph->setText("");
-  } else if (double supp = 5 && controller(str.replace("x", 0).toLocal8Bit().data(), &supp) == ERROR) {
+  } else if (double supp = 5 && !controller(str.replace("x", ui->Xmin_edit->text()).toLocal8Bit().data(), &supp)) {
     ui->Graph->setText("Incorrect input");
   } else {
     x.clear();
