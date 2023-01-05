@@ -7,9 +7,9 @@
 #include <QTimer>
 #include <QVector>
 
-#include "s21_smart_calc.h"
 #include "creditcalc.h"
 #include "deposcalc.h"
+#include "s21_smart_calc.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

@@ -1,8 +1,8 @@
 #ifndef INCLUDE_CREDITCALC_H_
 #define INCLUDE_CREDITCALC_H_
 
-#include <QIntValidator>
 #include <QDoubleValidator>
+#include <QIntValidator>
 #include <QMessageBox>
 #include <QStackedWidget>
 

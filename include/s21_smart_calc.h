@@ -18,8 +18,8 @@ extern "C" {
 #endif
 
 typedef struct Stack_tag {
-    char data[STACK_SIZE][256];
-    size_t size;
+  char data[STACK_SIZE][256];
+  size_t size;
 } Stack_t;
 
 int controller(char *infix, double *res);

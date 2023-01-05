@@ -2,9 +2,6 @@
 
 #include "ui_calculator.h"
 
-// TODO: пофиксить сортировку пополнений в депозите, хз что там, но не работает при одинаковых датах
-// TODO: теперь после уменьшения даты под маленький месяц нужно добавить увеличение
-
 static bool check = true;
 
 Calculator::Calculator(QWidget *parent)
@@ -136,6 +133,8 @@ void Calculator::calculate() {
     ui->Result->setText("Incorrect input");
   } else {
     if (str.contains('x')) str.replace("x", ui->Value->text());
+    str.replace("e+", "*10^");
+    str.replace("e-", "/10^");
     QByteArray bstr = str.toLocal8Bit();
     char *str_for_c = bstr.data();
     double result = 0;
@@ -195,9 +194,9 @@ void Calculator::makeGraph() {
     while (X < (double)Xmax) {
       x.push_back(X);
       str = ui->Graph->text();
+      str.replace("x", "(x)");
       str.replace("x", QString::number(X));
-      QByteArray ba = str.toLocal8Bit();
-      char *char_array = ba.data();
+      char *char_array = str.toLocal8Bit().data();
       controller(char_array, &Y);
       if (X == Xmin) {
         Ymin = Y;

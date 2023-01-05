@@ -44,6 +44,7 @@ class DeposCalc : public QStackedWidget {
   void addField();
   bool fillingWR(QDate *, double *);
   void sortWR(QDate *, double *);
+  void on_amountEdit_textEdited(const QString &arg1);
 };
 
 #endif  // INCLUDE_DEPOSCALC_H_

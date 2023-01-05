@@ -125,6 +125,9 @@ color: rgb(36, 48, 94);
 padding: 10px;
 }</string>
     </property>
+    <property name="maxLength">
+     <number>25</number>
+    </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
@@ -485,6 +488,10 @@ image: url(:/images/resource/Group 8.svg);
 border-radius: 10px;
 background-color: #FFF;
 color: rgb(36, 48, 94);
+}
+
+QCalendarWidget QToolButton::menu-indicator {
+    image: none; 
 }</string>
     </property>
     <property name="alignment">

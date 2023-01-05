@@ -18,6 +18,7 @@ DeposCalc::DeposCalc(QWidget *parent)
   ui->start->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
   ui->start->setDate(QDate::currentDate());
   ui->comboBox->setCurrentIndex(2);
+  ui->checkM->setChecked(true);
   FieldsNumTotal = 0;
 }
 
@@ -34,7 +35,7 @@ void DeposCalc::calculate() {
       ui->termEdit->text() != "" &&
       (ui->checkM->isChecked() || ui->checkY->isChecked())) {
     struct tm first;
-    double amount = ui->amountEdit->text().toDouble();
+    double amount = ui->amountEdit->text().replace(" ", "").toDouble();
     int term = ui->termEdit->text().toInt();
     if (ui->checkY->isChecked()) term *= 12;
     double interest = ui->interestEdit->text().toDouble();
@@ -61,9 +62,9 @@ void DeposCalc::calculate() {
       }
       depos_calc(amount, term, interest, period, first, capint, withrepls,
                  &extra, &taxamo, &total, &effect);
-      ui->extraAmo->setText(QString::number(extra, 'f', 2));
-      ui->taxAmo->setText(QString::number(taxamo, 'f', 2));
-      ui->total->setText(QString::number(total, 'f', 2));
+      ui->extraAmo->setText(QString("%L1").arg(extra, -1, 'f', 2, ' ').replace(",", " "));
+      ui->taxAmo->setText(QString("%L1").arg(taxamo, -1, 'f', 2, ' ').replace(",", " "));
+      ui->total->setText(QString("%L1").arg(total, -1, 'f', 2, ' ').replace(",", " "));
       effect /= amount;
       effect = round(effect * 100) / 100;
       if (!capint) {
@@ -148,3 +149,10 @@ void DeposCalc::delField(int fieldNumber) {
   allFieldPtr.remove(fieldNumber);
   ui->add->show();
 }
+
+void DeposCalc::on_amountEdit_textEdited(const QString &arg1) {
+    QString spaces = arg1;
+    spaces.replace(" ", "");
+    ui->amountEdit->setText(QString("%L1").arg(spaces.toDouble(), -1, 'f', 0, ' ').replace(",", " "));
+}
+

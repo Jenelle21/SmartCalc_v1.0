@@ -71,7 +71,7 @@ else
 endif
 
 dvi:
-	@open info.md -a Visual\ Studio\ Code
+	@open README.md -a Visual\ Studio\ Code
 
 dist:
 	@mkdir -p SmartCalc-1.0

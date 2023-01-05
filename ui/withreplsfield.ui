@@ -29,6 +29,10 @@
 border-radius: 10px;
 background-color: #FFF;
 color: rgb(36, 48, 94);
+}
+
+QCalendarWidget QToolButton::menu-indicator {
+    image: none; 
 }</string>
        </property>
        <property name="alignment">
