@@ -14,6 +14,7 @@ CreditCalc::CreditCalc(QWidget *parent)
   connect(ui->interestSlider, SIGNAL(valueChanged(int)), this,
           SLOT(setValInt()));
   connect(ui->termSlider, SIGNAL(valueChanged(int)), this, SLOT(setValTerm()));
+  ui->loanEdit->setValidator(new QDoubleValidator(1, 1000000000, 0, ui->interestEdit));
   ui->interestEdit->setValidator(new QDoubleValidator(1.0, 50.0, 1, ui->interestEdit));
   ui->termEdit->setValidator(new QIntValidator(1, 36, ui->termEdit));
   connect(ui->calculate, SIGNAL(clicked()), this, SLOT(calculate()));
